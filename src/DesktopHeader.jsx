@@ -114,7 +114,7 @@ class DesktopHeader extends React.Component {
             {logoDestination === null ? <Logo className="logo" src={logo} alt={logoAltText} /> : <LinkedLogo className="logo" {...logoProps} />}
             <nav
               aria-label={intl.formatMessage(messages['header.label.main.nav'])}
-              className="nav main-nav"
+              className="nav"
             >
               {this.renderMainMenu()}
             </nav>

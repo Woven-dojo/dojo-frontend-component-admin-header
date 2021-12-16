@@ -36,8 +36,23 @@ function Header({ intl }) {
   const mainMenu = [
     {
       type: 'item',
-      href: `${config.LMS_BASE_URL}/dashboard`,
-      content: intl.formatMessage(messages['header.links.courses']),
+      href: '/instructor',
+      content: 'Instructors',
+    },
+    {
+      type: 'item',
+      href: '/course',
+      content: 'Courses',
+    },
+    {
+      type: 'item',
+      href: '/customer',
+      content: 'Customers',
+    },
+    {
+      type: 'item',
+      href: '/ticket',
+      content: 'Tickets',
     },
   ];
 

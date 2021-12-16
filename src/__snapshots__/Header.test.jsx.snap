@@ -28,13 +28,31 @@ exports[`<Header /> renders correctly for anonymous desktop 1`] = `
       </a>
       <nav
         aria-label="Main"
-        className="nav main-nav"
+        className="nav"
       >
         <a
           className="nav-link"
-          href="http://localhost:18000/dashboard"
+          href="/instructor"
+        >
+          Instructors
+        </a>
+        <a
+          className="nav-link"
+          href="/course"
         >
           Courses
+        </a>
+        <a
+          className="nav-link"
+          href="/customer"
+        >
+          Customers
+        </a>
+        <a
+          className="nav-link"
+          href="/ticket"
+        >
+          Tickets
         </a>
       </nav>
       <nav
@@ -224,13 +242,31 @@ exports[`<Header /> renders correctly for authenticated desktop 1`] = `
       </a>
       <nav
         aria-label="Main"
-        className="nav main-nav"
+        className="nav"
       >
         <a
           className="nav-link"
-          href="http://localhost:18000/dashboard"
+          href="/instructor"
+        >
+          Instructors
+        </a>
+        <a
+          className="nav-link"
+          href="/course"
         >
           Courses
+        </a>
+        <a
+          className="nav-link"
+          href="/customer"
+        >
+          Customers
+        </a>
+        <a
+          className="nav-link"
+          href="/ticket"
+        >
+          Tickets
         </a>
       </nav>
       <nav

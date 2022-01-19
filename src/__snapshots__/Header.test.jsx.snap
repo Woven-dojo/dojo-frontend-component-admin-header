@@ -50,7 +50,7 @@ exports[`<Header /> renders correctly for anonymous desktop 1`] = `
         </a>
         <a
           className="nav-link"
-          href="/submissions"
+          href="/submission"
         >
           Submissions
         </a>
@@ -264,7 +264,7 @@ exports[`<Header /> renders correctly for authenticated desktop 1`] = `
         </a>
         <a
           className="nav-link"
-          href="/submissions"
+          href="/submission"
         >
           Submissions
         </a>

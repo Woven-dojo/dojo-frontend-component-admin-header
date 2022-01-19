@@ -51,7 +51,7 @@ function Header({ intl }) {
     },
     {
       type: 'item',
-      href: '/submissions',
+      href: '/submission',
       content: 'Submissions',
     },
   ];

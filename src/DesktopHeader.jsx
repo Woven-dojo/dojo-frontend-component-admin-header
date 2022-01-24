@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { getConfig } from '@edx/frontend-platform';
@@ -134,7 +134,9 @@ const DesktopHeader = ({
             aria-label={intl.formatMessage(messages['header.label.main.nav'])}
             className="nav"
           >
-            <RenderMainMenu mainMenu={mainMenu} />
+            <BrowserRouter>
+              <RenderMainMenu mainMenu={mainMenu} />
+            </BrowserRouter>
           </nav>
           <nav
             aria-label={intl.formatMessage(

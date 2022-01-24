@@ -1,6 +1,7 @@
 $spacer: 1rem;
 $blue: #007db8;
 $white: #fff;
+$active: #5f84ff;
 
 @import './Menu/menu.scss';
 
@@ -117,4 +118,9 @@ $white: #fff;
   .search-input {
     border-radius: $rounded-pill;
   }
+}
+
+.nav-link__active {
+  color: $active;
+  font-weight: bold;
 }

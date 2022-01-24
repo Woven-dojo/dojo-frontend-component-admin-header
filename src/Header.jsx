@@ -1,33 +1,39 @@
-import React, { useContext } from 'react';
-import Responsive from 'react-responsive';
-import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import { AppContext } from '@edx/frontend-platform/react';
+import React, { useContext } from "react";
+import Responsive from "react-responsive";
+import { injectIntl, intlShape } from "@edx/frontend-platform/i18n";
+import { AppContext } from "@edx/frontend-platform/react";
 import {
   APP_CONFIG_INITIALIZED,
   ensureConfig,
   mergeConfig,
   getConfig,
   subscribe,
-} from '@edx/frontend-platform';
+} from "@edx/frontend-platform";
 
-import DesktopHeader from './DesktopHeader';
-import MobileHeader from './MobileHeader';
+import DesktopHeader from "./DesktopHeader";
+import MobileHeader from "./MobileHeader";
 
-import messages from './Header.messages';
+import messages from "./Header.messages";
 
-ensureConfig([
-  'LMS_BASE_URL',
-  'LOGOUT_URL',
-  'LOGIN_URL',
-  'SITE_NAME',
-  'LOGO_URL',
-  'ORDER_HISTORY_URL',
-], 'Header component');
+ensureConfig(
+  [
+    "LMS_BASE_URL",
+    "LOGOUT_URL",
+    "LOGIN_URL",
+    "SITE_NAME",
+    "LOGO_URL",
+    "ORDER_HISTORY_URL",
+  ],
+  "Header component"
+);
 
 subscribe(APP_CONFIG_INITIALIZED, () => {
-  mergeConfig({
-    AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER,
-  }, 'Header additional config');
+  mergeConfig(
+    {
+      AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER,
+    },
+    "Header additional config"
+  );
 });
 
 function Header({ intl }) {
@@ -35,55 +41,60 @@ function Header({ intl }) {
 
   const mainMenu = [
     {
-      type: 'item',
-      href: '/instructor',
-      content: 'Instructors',
+      type: "item",
+      href: "/instructor",
+      content: "Instructors",
     },
     {
-      type: 'item',
-      href: '/course',
-      content: 'Courses',
+      type: "item",
+      href: "/course",
+      content: "Courses",
     },
     {
-      type: 'item',
-      href: '/customer',
-      content: 'Customers',
+      type: "item",
+      href: "/customer",
+      content: "Customers",
     },
     {
-      type: 'item',
-      href: '/submission',
-      content: 'Submissions',
+      type: "item",
+      href: "/submission",
+      content: "Submissions",
     },
   ];
 
   const orderHistoryItem = {
-    type: 'item',
+    type: "item",
     href: config.ORDER_HISTORY_URL,
-    content: intl.formatMessage(messages['header.user.menu.order.history']),
+    content: intl.formatMessage(messages["header.user.menu.order.history"]),
   };
 
-  const userMenu = authenticatedUser === null ? [] : [
-    {
-      type: 'item',
-      href: `${config.LMS_BASE_URL}/dashboard`,
-      content: intl.formatMessage(messages['header.user.menu.dashboard']),
-    },
-    {
-      type: 'item',
-      href: `${config.LMS_BASE_URL}/u/${authenticatedUser.username}`,
-      content: intl.formatMessage(messages['header.user.menu.profile']),
-    },
-    {
-      type: 'item',
-      href: `${config.LMS_BASE_URL}/account/settings`,
-      content: intl.formatMessage(messages['header.user.menu.account.settings']),
-    },
-    {
-      type: 'item',
-      href: config.LOGOUT_URL,
-      content: intl.formatMessage(messages['header.user.menu.logout']),
-    },
-  ];
+  const userMenu =
+    authenticatedUser === null
+      ? []
+      : [
+          {
+            type: "item",
+            href: `${config.LMS_BASE_URL}/dashboard`,
+            content: intl.formatMessage(messages["header.user.menu.dashboard"]),
+          },
+          {
+            type: "item",
+            href: `${config.LMS_BASE_URL}/u/${authenticatedUser.username}`,
+            content: intl.formatMessage(messages["header.user.menu.profile"]),
+          },
+          {
+            type: "item",
+            href: `${config.LMS_BASE_URL}/account/settings`,
+            content: intl.formatMessage(
+              messages["header.user.menu.account.settings"]
+            ),
+          },
+          {
+            type: "item",
+            href: config.LOGOUT_URL,
+            content: intl.formatMessage(messages["header.user.menu.logout"]),
+          },
+        ];
 
   // Users should only see Order History if have a ORDER_HISTORY_URL define in the environment.
   if (config.ORDER_HISTORY_URL) {
@@ -92,14 +103,14 @@ function Header({ intl }) {
 
   const loggedOutItems = [
     {
-      type: 'item',
+      type: "item",
       href: config.LOGIN_URL,
-      content: intl.formatMessage(messages['header.user.menu.login']),
+      content: intl.formatMessage(messages["header.user.menu.login"]),
     },
     {
-      type: 'item',
+      type: "item",
       href: `${config.LMS_BASE_URL}/register`,
-      content: intl.formatMessage(messages['header.user.menu.register']),
+      content: intl.formatMessage(messages["header.user.menu.register"]),
     },
   ];
 

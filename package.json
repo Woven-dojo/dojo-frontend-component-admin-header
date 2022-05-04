@@ -11,17 +11,19 @@
     "build": "make build",
     "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
+    "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx .",
     "snapshot": "fedx-scripts jest --updateSnapshot",
     "start": "fedx-scripts webpack-dev-server --progress",
-    "test": "fedx-scripts jest --coverage"
+    "test": "fedx-scripts jest --coverage",
+    "prepare": "husky install"
   },
   "files": [
     "/dist"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run lint:fix"
+    ]
   },
   "repository": {
     "type": "git",
@@ -38,10 +40,16 @@
     "@edx/frontend-build": "5.6.14",
     "@edx/frontend-platform": "1.14.1",
     "@edx/paragon": "12.8.0",
+    "@testing-library/dom": "7.31.2",
+    "@testing-library/jest-dom": "5.15.1",
+    "@testing-library/react": "10.3.0",
     "codecov": "3.8.3",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",
     "husky": "7.0.4",
+    "jest": "27.3.1",
+    "jest-chain": "1.1.5",
+    "lint-staged": "^12.4.1",
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -49,12 +57,7 @@
     "react-test-renderer": "16.14.0",
     "reactifex": "1.1.1",
     "redux": "4.1.2",
-    "redux-saga": "1.1.3",
-    "@testing-library/dom": "7.31.2",
-    "@testing-library/jest-dom": "5.15.1",
-    "jest": "27.3.1",
-    "jest-chain": "1.1.5",
-    "@testing-library/react": "10.3.0"
+    "redux-saga": "1.1.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.36",
@@ -62,6 +65,7 @@
     "@fortawesome/free-regular-svg-icons": "5.15.4",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@reustleco/dojo-frontend-common": "^1.1.0-alpha.3",
     "babel-polyfill": "6.26.0",
     "classnames": "^2.3.1",
     "react-responsive": "8.2.0",

@@ -67,10 +67,10 @@ const RenderLoggedOutItems = ({ loggedOutItems }) => loggedOutItems.map(({ type,
   <li className="nav-item px-3 my-2" key={`${type}-${content}`}>
     <a
       className={
-          i < arr.length - 1
-            ? 'btn btn-block btn-outline-primary'
-            : 'btn btn-block btn-primary'
-        }
+        i < arr.length - 1
+          ? 'btn btn-block btn-outline-primary'
+          : 'btn btn-block btn-primary'
+      }
       href={href}
     >
       {content}

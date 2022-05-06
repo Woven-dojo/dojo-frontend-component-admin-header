@@ -1,3 +1,4 @@
-const { createConfig } = require('@edx/frontend-build');
+const { getBaseConfig } = require("@edx/frontend-build");
+const withDojoPreset = require("@reustleco/dojo-frontend-common/configs/eslint");
 
-module.exports = createConfig('eslint');
+module.exports = withDojoPreset(getBaseConfig("eslint"));

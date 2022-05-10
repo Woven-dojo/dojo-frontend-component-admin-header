@@ -94,10 +94,10 @@ const RenderLoggedOutItems = ({ loggedOutItems }) => loggedOutItems.map((item, i
   <a
     key={`${item.type}-${item.content}`}
     className={
-        i < arr.length - 1
-          ? 'btn mr-2 btn-link'
-          : 'btn mr-2 btn-outline-primary'
-      }
+      i < arr.length - 1
+        ? 'btn mr-2 btn-link'
+        : 'btn mr-2 btn-outline-primary'
+    }
     href={item.href}
   >
     {item.content}

@@ -35,8 +35,8 @@ function Header({ intl }) {
   const mainMenu = [
     {
       type: 'item',
-      href: '/courseteam',
-      content: 'Course Team',
+      href: '/coursestaff',
+      content: 'Course Staff',
     },
     {
       type: 'item',

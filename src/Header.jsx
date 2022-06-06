@@ -40,16 +40,6 @@ function Header({ intl }) {
     },
     {
       type: 'item',
-      href: '/course',
-      content: 'Courses',
-    },
-    {
-      type: 'item',
-      href: '/customer',
-      content: 'Customers',
-    },
-    {
-      type: 'item',
       href: '/submission',
       content: 'Submissions',
     },

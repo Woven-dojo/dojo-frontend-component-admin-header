@@ -38,18 +38,6 @@ exports[`<Header /> renders correctly for anonymous desktop 1`] = `
         </a>
         <a
           className="nav-link"
-          href="/course"
-        >
-          Courses
-        </a>
-        <a
-          className="nav-link"
-          href="/customer"
-        >
-          Customers
-        </a>
-        <a
-          className="nav-link"
           href="/submission"
         >
           Submissions
@@ -249,18 +237,6 @@ exports[`<Header /> renders correctly for authenticated desktop 1`] = `
           href="/coursestaff"
         >
           Course Staff
-        </a>
-        <a
-          className="nav-link"
-          href="/course"
-        >
-          Courses
-        </a>
-        <a
-          className="nav-link"
-          href="/customer"
-        >
-          Customers
         </a>
         <a
           className="nav-link"

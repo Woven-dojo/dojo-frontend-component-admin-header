@@ -29,6 +29,7 @@ const RenderMainMenu = ({ mainMenu }) => {
     if (type === 'item') {
       return (
         <a
+          key={`${href}-${type}`}
           href={href}
           className={classNames('nav-link', {
             'nav-link__active': pathname === href,

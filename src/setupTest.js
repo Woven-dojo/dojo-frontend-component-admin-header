@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import Enzyme from 'enzyme';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Adapter from 'enzyme-adapter-react-16';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import 'babel-polyfill';
@@ -11,13 +9,14 @@ import 'jest-chain';
 import { getConfig, mergeConfig } from '@edx/frontend-platform';
 import { configure as configureLogging } from '@edx/frontend-platform/logging';
 import { configure as configureI18n } from '@edx/frontend-platform/i18n';
-import { configure as configureAuth, MockAuthService } from '@edx/frontend-platform/auth';
+import {
+  configure as configureAuth,
+  MockAuthService,
+} from '@edx/frontend-platform/auth';
 import { render as rtlRender } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import AppProvider from '@edx/frontend-platform/react/AppProvider';
 import appMessages from './i18n';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 // These configuration values are usually set in webpack's EnvironmentPlugin however
 // Jest does not use webpack so we need to set these so for testing
@@ -63,7 +62,8 @@ export function initializeMockApp() {
     LMS_BASE_URL: process.env.LMS_BASE_URL || null,
     LOGIN_URL: process.env.LOGIN_URL || null,
     LOGOUT_URL: process.env.LOGOUT_URL || null,
-    REFRESH_ACCESS_TOKEN_ENDPOINT: process.env.REFRESH_ACCESS_TOKEN_ENDPOINT || null,
+    REFRESH_ACCESS_TOKEN_ENDPOINT:
+      process.env.REFRESH_ACCESS_TOKEN_ENDPOINT || null,
     ACCESS_TOKEN_COOKIE_NAME: process.env.ACCESS_TOKEN_COOKIE_NAME || null,
     CSRF_TOKEN_API_PATH: process.env.CSRF_TOKEN_API_PATH || null,
     LOGO_URL: process.env.LOGO_URL || null,
@@ -95,20 +95,12 @@ export function initializeMockApp() {
   return { loggingService, authService };
 }
 
-function render(
-  ui,
-  {
-    store = null,
-    ...renderOptions
-  } = {},
-) {
+function render(ui, { store = null, ...renderOptions } = {}) {
   function Wrapper({ children }) {
     return (
-    // eslint-disable-next-line react/jsx-filename-extension
+      // eslint-disable-next-line react/jsx-filename-extension
       <IntlProvider locale="en">
-        <AppProvider store={store}>
-          {children}
-        </AppProvider>
+        <AppProvider store={store}>{children}</AppProvider>
       </IntlProvider>
     );
   }
@@ -124,6 +116,4 @@ function render(
 export * from '@testing-library/react';
 
 // Override `render` method.
-export {
-  render,
-};
+export { render };

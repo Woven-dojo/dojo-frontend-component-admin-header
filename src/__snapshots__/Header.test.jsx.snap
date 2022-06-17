@@ -32,15 +32,9 @@ exports[`<Header /> renders correctly for anonymous desktop 1`] = `
       >
         <a
           className="nav-link"
-          href="/coursestaff"
+          href="/dashboard"
         >
-          Course Staff
-        </a>
-        <a
-          className="nav-link"
-          href="/submission"
-        >
-          Submissions
+          Dashboard
         </a>
       </nav>
       <nav
@@ -234,15 +228,9 @@ exports[`<Header /> renders correctly for authenticated desktop 1`] = `
       >
         <a
           className="nav-link"
-          href="/coursestaff"
+          href="/dashboard"
         >
-          Course Staff
-        </a>
-        <a
-          className="nav-link"
-          href="/submission"
-        >
-          Submissions
+          Dashboard
         </a>
       </nav>
       <nav

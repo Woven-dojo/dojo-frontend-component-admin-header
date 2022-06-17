@@ -31,7 +31,7 @@ subscribe(APP_CONFIG_INITIALIZED, () => {
   }, 'Header additional config');
 });
 
-function Header({ mainMenu = { MAIN_MENU }, intl }) {
+function Header({ mainMenu = MAIN_MENU, intl }) {
   const { authenticatedUser, config } = useContext(AppContext);
 
   const orderHistoryItem = {

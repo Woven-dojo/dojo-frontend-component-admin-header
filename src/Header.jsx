@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import Responsive from 'react-responsive';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
@@ -13,6 +14,7 @@ import {
 import DesktopHeader from './DesktopHeader';
 import MobileHeader from './MobileHeader';
 import messages from './Header.messages';
+import { MAIN_MENU } from './constants';
 
 ensureConfig([
   'LMS_BASE_URL',
@@ -29,21 +31,8 @@ subscribe(APP_CONFIG_INITIALIZED, () => {
   }, 'Header additional config');
 });
 
-function Header({ intl }) {
+function Header({ mainMenu = { MAIN_MENU }, intl }) {
   const { authenticatedUser, config } = useContext(AppContext);
-
-  const mainMenu = [
-    {
-      type: 'item',
-      href: '/coursestaff',
-      content: 'Course Staff',
-    },
-    {
-      type: 'item',
-      href: '/submission',
-      content: 'Submissions',
-    },
-  ];
 
   const orderHistoryItem = {
     type: 'item',
@@ -117,6 +106,12 @@ function Header({ intl }) {
 }
 
 Header.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  mainMenu: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })),
   intl: intlShape.isRequired,
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "@reustleco/dojo-frontend-component-admin-header",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
